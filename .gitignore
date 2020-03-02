@@ -1,0 +1,9 @@
+./public/bundle.js
+node_modules/*
+react/coverage/*
+yarn.lock
+.DS_store
+.bundle
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

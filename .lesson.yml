@@ -1,0 +1,14 @@
+---
+title: "Node Group Project"
+type: "challenge"
+description: "Use your React, Express, and Node skills to build a Pet Adoption Site"
+tags: "javascript, react, react-forms, react-router, express, handlebars"
+behaviors:
+  - react_on_node
+  - express
+  - react_router
+  - react_testing
+ignore:
+- "node_modules/"
+- "react/coverage/"
+- "node-group-project.md"
