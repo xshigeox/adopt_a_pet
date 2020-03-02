@@ -1,29 +1,42 @@
-import React from "react"
-import { Link, Switch, Route } from "react-router-dom"
+import React, { Fragment } from "react";
+import { Link, Switch, Route } from "react-router-dom";
 
 const NavBar = props => {
   return (
-    <>
-      <div className="top-bar top-links" id="nav">
-        <nav>
-          <Link to="/" className="nav-link">
-            <i class="fas fa-home"></i>
+    <Fragment>
+      <nav className="top-bar topbar-responsive">
+        <div className="top-bar-title">
+          <Link to="/" id="topbar-site-title">
+            <strong>Pet Adoption Site</strong>
           </Link>
-          <i class="fas fa-grip-lines-vertical"></i>
-          <Link to="/guinea_pigs" className="nav-link">
-            Guinea Pigs
-          </Link>
-          <i class="fas fa-grip-lines-vertical"></i>
-          <Link to="/reptiles" className="nav-link">
-            Reptiles
-          </Link>
-          <i class="fas fa-grip-lines-vertical"></i>
-          <Link to="/adoptions/new" className="nav-link">
-            Put up for Adoption
-          </Link>
-        </nav>
-      </div>
-
+        </div>
+        <div id="topbar-responsive" className="topbar-responsive-links">
+          <div className="top-bar-right">
+            <ul className="menu simple vertical medium-horizontal">
+              <li>
+                <Link to="/" classNameName="">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/guinea_pigs" className="">
+                  Guinea Pigs
+                </Link>
+              </li>
+              <li>
+                <Link to="/reptiles" className="">
+                  Reptiles
+                </Link>
+              </li>
+              <li>
+                <Link to="/adoptions/new" className="">
+                  Put up for Adoption
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
       <div>
         <Switch>
           <Route exact path="/" />
@@ -32,8 +45,8 @@ const NavBar = props => {
           <Route exact path="/adoptions/new" />
         </Switch>
       </div>
-    </>
-  )
-}
+    </Fragment>
+  );
+};
 
-export default NavBar
+export default NavBar;
