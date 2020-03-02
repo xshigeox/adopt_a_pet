@@ -1,1 +1,9 @@
 /* your styles, here */
+.nav-link {
+  margin: 5px;
+}
+
+.top-links {
+  position: sticky;
+  top: 0;
+}
