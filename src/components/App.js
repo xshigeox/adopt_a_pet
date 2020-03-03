@@ -1,10 +1,10 @@
 import React from "react"
 import { Route, Switch, BrowserRouter } from "react-router-dom"
-import TypeOfPets from "./TypeOfPets"
+import TypeOfPetsContainer from "./TypeOfPetsContainer"
 
 const App = props => {
   return (
-  <TypeOfPets />
+  <TypeOfPetsContainer />
   )
 }
 

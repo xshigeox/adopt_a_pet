@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
+import TypeOfPet from "./TypeOfPet"
 
-const TypeOfPets = props =>  {
+const TypeOfPetsContainer = props =>  {
 
     const [petType, setPetType] = useState([])
     
@@ -16,13 +17,11 @@ const TypeOfPets = props =>  {
             }
         })
             .then(result => {
-                console.log(result.json())
                 return (result.json())
-                
             })
             .then(json => {
-                setPetType(json.body)
-                console.log(json.body)
+                setPetType(json)
+                console.log(json)
             })
             .catch(error => {
                 console.log(error)
@@ -31,12 +30,20 @@ const TypeOfPets = props =>  {
     , []
     )
 
-
-    console.log(petType)
+    const listOfPets = petType.map( element  =>  {
+        return (
+        <TypeOfPet
+        data={element}
+        />
+        )
+    })
 
 
     return(
-        <h1>Hi</h1>
+
+        <div>
+        {listOfPets}
+        </div>
     )
 }
-export default TypeOfPets
+export default TypeOfPetsContainer
