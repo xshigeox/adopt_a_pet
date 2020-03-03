@@ -1,16 +1,20 @@
-import React from "react"
+import React from "react";
 
+const TypeOfPet = props => {
+  const { type, description, img_url } = props.data;
 
-const TypeOfPet = props  =>   {
+  return (
+    <div className="featured-image-block medium-6 column">
+      <a href="#">
+        <img
+          className="resizing-img"
+          src={img_url}
+        />
+        <p className="text-center featured-image-block-title">{type}</p>
+      </a>
+      <p>{description}</p>
+    </div>
+  );
+};
 
-    const {id, type, description} = props.data
-
-    return(
-        <div>
-            <h3>{type}</h3>
-            <p>{description}</p>
-        </div>
-    )
-}
-
-export default TypeOfPet
+export default TypeOfPet;

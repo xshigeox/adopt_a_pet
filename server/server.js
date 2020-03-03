@@ -34,9 +34,9 @@ const pool = new Pool({
 })
 
 // Express routes
-app.get("/api/pet_type", (req, res)  =>  {
+app.get("/api/v1/pet_type", (req, res)  =>  {
   pool
-  .query("SELECT * FROM pet_types")
+  .query("SELECT pet_types.type, pet_types.description, adoptable_pets.img_url FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id GROUP BY pet_types.type, pet_types.description, adoptable_pets.img_url LIMIT 2")
   .then(result => {
       return res.json(result.rows)
     })

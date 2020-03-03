@@ -1,1 +1,35 @@
 /* your styles, here */
+
+.featured-image-block-grid-header {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .featured-image-block {
+    margin-bottom: 2em;
+    text-align: center;
+  }
+  
+  .featured-image-block .featured-image-block-title {
+    font-weight: 600;
+    margin-top: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1em;
+    color: #404040;
+    text-align: center;
+  }
+  
+  .featured-image-block a:hover p {
+    color: #1779ba;
+  }
+  
+  .resizing-img {
+    border: 2px solid black;
+    width: 30em;
+    height: 30em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+ 
