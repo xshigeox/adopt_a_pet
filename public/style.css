@@ -1,40 +1,5 @@
 /* your styles, here */
 
-<<<<<<< HEAD
-.featured-image-block-grid-header {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .featured-image-block {
-    margin-bottom: 2em;
-    text-align: center;
-  }
-  
-  .featured-image-block .featured-image-block-title {
-    font-weight: 600;
-    margin-top: 1em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 1em;
-    color: #404040;
-    text-align: center;
-  }
-  
-  .featured-image-block a:hover p {
-    color: #1779ba;
-  }
-  
-  .resizing-img {
-    border: 2px solid black;
-    width: 30em;
-    height: 30em;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-  }
- 
-=======
 .nav-link {
   margin: 5px;
 }
@@ -199,4 +164,35 @@
   text-shadow: 1px 1px 2px #0a0a0a;
 }
 
->>>>>>> 54e48e1e85eb24e249e06240c27a83c5b561d0a2
+.featured-image-block-grid-header {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.featured-image-block {
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.featured-image-block .featured-image-block-title {
+  font-weight: 600;
+  margin-top: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1em;
+  color: #404040;
+  text-align: center;
+}
+
+.featured-image-block a:hover p {
+  color: #1779ba;
+}
+
+.resizing-img {
+  border: 2px solid black;
+  width: 30em;
+  height: 30em;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
