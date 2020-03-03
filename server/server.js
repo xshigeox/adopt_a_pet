@@ -34,6 +34,7 @@ const pool = new Pool({
 })
 
 // Express routes
+<<<<<<< HEAD
 app.get("/api/v1/pet_type", (req, res)  =>  {
   pool
   .query("SELECT pet_types.type, pet_types.description, adoptable_pets.img_url FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id GROUP BY pet_types.type, pet_types.description, adoptable_pets.img_url LIMIT 2")
@@ -55,10 +56,17 @@ app.get("/api/guinea_pigs", (req, res) =>  {
     console.log(error)
   })
 })
+=======
+>>>>>>> 54e48e1e85eb24e249e06240c27a83c5b561d0a2
 
-app.get("/api/reptiles", (req, res)  =>  {
+app.get("/api/v1/:pet_type", (req, res)  =>  {
+  let petType = req.params.pet_type
+  if(petType == 'pigguinea' || petType == 'guineapig')  {
+    petType = 'guinea'
+  }
   pool
-  .query("SELECT * FROM adoptable_pets WHERE pet_type_id = 2")
+  .query("SELECT pet_types.type FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id WHERE pet_types.type LIKE $1",
+  [`%${petType}%`])
   .then(result => {
     return res.json(result.rows)
   })
@@ -67,7 +75,7 @@ app.get("/api/reptiles", (req, res)  =>  {
   })
 })
 
-app.get("/api/pets/:id", (req, res) => {
+app.get("/api/v1/pets/:id", (req, res) => {
   const animalId = req.params.id
   pool
     .query("SELECT * FROM adoptable_pets WHERE id = $1",
