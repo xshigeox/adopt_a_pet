@@ -145,7 +145,7 @@
 
 .hero-section {
   background: url("images/gpturt.jpg") 50% no-repeat;
-  background-size: cover;
+  background-size: 80%;
   height: 60vh;
   text-align: center;
   display: -webkit-flex;
@@ -160,7 +160,7 @@
 }
 
 .hero-section .hero-section-text {
-  color: #000000;
+  color: #fefefe;
   text-shadow: 1px 1px 2px #0a0a0a;
 }
 
