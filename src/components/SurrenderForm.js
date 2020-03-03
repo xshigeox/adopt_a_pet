@@ -58,6 +58,7 @@ const SurrenderForm = props => {
         headers: { "Content-Type": "application/json" }
       })
         .then(response => {
+          console.log(response)
           if (response.ok) {
             setSubmitted(true)
           } else {
@@ -196,7 +197,7 @@ const SurrenderForm = props => {
       </form>
     )
   } else {
-    return <h3>Your request is pending review.</h3>
+    return <h3 id="surrender-review">Your application is pending review.</h3>
   }
 }
 

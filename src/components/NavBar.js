@@ -1,9 +1,10 @@
-import React, { Fragment } from "react"
-import { Link, Switch, Route } from "react-router-dom"
+import React from "react"
+import { Link, Switch, Route, BrowserRouter } from "react-router-dom"
+import SurrenderForm from "./SurrenderForm"
 
 const NavBar = props => {
   return (
-    <Fragment>
+    <BrowserRouter>
       <nav className="top-bar topbar-responsive">
         <div className="top-bar-title">
           <Link to="/" id="topbar-site-title">
@@ -35,10 +36,10 @@ const NavBar = props => {
           <Route exact path="/" />
           <Route exact path="/guinea_pigs" />
           <Route exact path="/reptiles" />
-          <Route exact path="/adoptions/new" />
+          <Route exact path="/adoptions/new" component={SurrenderForm} />
         </Switch>
       </div>
-    </Fragment>
+    </BrowserRouter>
   )
 }
 

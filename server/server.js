@@ -35,27 +35,16 @@ const pool = new Pool({
 
 // Express routes
 
-app.get("/api/v1/:pet_type", (req, res)  =>  {
+app.get("/api/v1/:pet_type", (req, res) => {
   let petType = req.params.pet_type
-  if(petType == 'pigguinea' || petType == 'guineapig')  {
-    petType = 'guinea'
+  if (petType == "pigguinea" || petType == "guineapig") {
+    petType = "guinea"
   }
   pool
-  .query("SELECT pet_types.type FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id WHERE pet_types.type LIKE $1",
-  [`%${petType}%`])
-  .then(result => {
-    return res.json(result.rows)
-  })
-  .catch(error => {
-    console.log(error)
-  })
-})
-
-app.get("/api/v1/pets/:id", (req, res) => {
-  const animalId = req.params.id
-  pool
-    .query("SELECT * FROM adoptable_pets WHERE id = $1",
-    [animalId])
+    .query(
+      "SELECT pet_types.type FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id WHERE pet_types.type LIKE $1",
+      [`%${petType}%`]
+    )
     .then(result => {
       return res.json(result.rows)
     })
@@ -64,6 +53,53 @@ app.get("/api/v1/pets/:id", (req, res) => {
     })
 })
 
+app.get("/api/v1/pets/:id", (req, res) => {
+  const animalId = req.params.id
+  pool
+    .query("SELECT * FROM adoptable_pets WHERE id = $1", [animalId])
+    .then(result => {
+      return res.json(result.rows)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+})
+
+app.post("/api/v1/newPet", (req, res) => {
+  const {
+    name,
+    phoneNumber,
+    email,
+    petName,
+    petAge,
+    petType,
+    petImageUrl,
+    vaccinationStatus
+  } = req.body
+
+  pool
+    .query(
+      "INSERT INTO pet_surrender_applications(name, phone_number, email, pet_name, pet_age, pet_type_id, pet_img_url, vaccination_status, application_status) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)",
+      [
+        name,
+        phoneNumber,
+        email,
+        petName,
+        petAge,
+        petType,
+        petImageUrl,
+        vaccinationStatus,
+        "pending"
+      ]
+    )
+    .then(result => {
+      return res.json(result.rows)
+    })
+    .catch(err => {
+      console.log(err)
+      res.sendStatus(500)
+    })
+})
 
 app.get("*", (req, res) => {
   res.render("home")
