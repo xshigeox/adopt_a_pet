@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import React, { Fragment } from "react"
+import { Link, Switch, Route } from "react-router-dom"
 
 const NavBar = props => {
   return (
@@ -14,29 +14,22 @@ const NavBar = props => {
           <div className="top-bar-right">
             <ul className="menu simple vertical medium-horizontal">
               <li>
-                <Link to="/" classNameName="">
-                  Home
-                </Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/guinea_pigs" className="">
-                  Guinea Pigs
-                </Link>
+                <Link to="/guinea_pigs">Guinea Pigs</Link>
               </li>
               <li>
-                <Link to="/reptiles" className="">
-                  Reptiles
-                </Link>
+                <Link to="/reptiles">Reptiles</Link>
               </li>
               <li>
-                <Link to="/adoptions/new" className="">
-                  Put up for Adoption
-                </Link>
+                <Link to="/adoptions/new">Put up for Adoption</Link>
               </li>
             </ul>
           </div>
         </div>
       </nav>
+
       <div>
         <Switch>
           <Route exact path="/" />
@@ -46,7 +39,7 @@ const NavBar = props => {
         </Switch>
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

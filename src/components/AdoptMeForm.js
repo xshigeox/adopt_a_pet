@@ -57,7 +57,7 @@ const AdoptMeForm = props => {
   return (
     <form
       autoComplete="off"
-      it="adoptMeForm"
+      id="adoptMeForm"
       className="callout"
       onSubmit={onSubmitHandler}
     >
