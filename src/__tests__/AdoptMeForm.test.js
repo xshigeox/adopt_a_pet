@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { BrowserRouter } from "react-router-dom"
 import Enzyme, { mount } from "enzyme"
 import Adapter from "enzyme-adapter-react-16"
