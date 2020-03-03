@@ -34,6 +34,42 @@ const pool = new Pool({
 })
 
 // Express routes
+app.get("/api/guinea_pigs", (req, res) =>  {
+  pool
+  .query("SELECT * FROM adoptable_pets WHERE pet_type_id = 1")
+  .then(result =>  {
+    return res.json(result.rows)
+  })
+  .catch(error =>  {
+    console.log(error)
+  })
+})
+
+app.get("/api/reptiles", (req, res)  =>  {
+  pool
+  .query("SELECT * FROM adoptable_pets WHERE pet_type_id = 2")
+  .then(result => {
+    return res.json(result.rows)
+  })
+  .catch(error => {
+    console.log(error)
+  })
+})
+
+app.get("/api/pets/:id", (req, res) => {
+  const animalId = req.params.id
+  pool
+    .query("SELECT * FROM adoptable_pets WHERE id = $1",
+    [animalId])
+    .then(result => {
+      return res.json(result.rows)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+})
+
+
 app.get("*", (req, res) => {
   res.render("home")
 })
