@@ -34,6 +34,17 @@ const pool = new Pool({
 })
 
 // Express routes
+app.get("/api/pet_type", (req, res)  =>  {
+  pool
+  .query("SELECT * FROM pet_types")
+  .then(result => {
+      return res.json(result.rows)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+})
+
 app.get("/api/guinea_pigs", (req, res) =>  {
   pool
   .query("SELECT * FROM adoptable_pets WHERE pet_type_id = 1")
