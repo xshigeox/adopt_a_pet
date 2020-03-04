@@ -148,8 +148,8 @@
 }
 
 .hero-section {
-  background: url("images/gpturt.jpg") 50% no-repeat;
-  background-size: 80%;
+  background: url("images/gpsturts.jpg") 50% no-repeat;
+  background-size: 76%;
   height: 60vh;
   text-align: center;
   display: -webkit-flex;
@@ -163,9 +163,10 @@
   justify-content: center;
 }
 
-.hero-section .hero-section-text {
-  color: #fefefe;
-  text-shadow: 1px 1px 2px #0a0a0a;
+#hero-section-text {
+  color: #EA526F;
+  text-shadow: 1px 1px 2px #c6d1d8;
+  text-align: left;
 }
 
 .featured-image-block-grid-header {
@@ -189,11 +190,13 @@
 }
 
 .featured-image-block a:hover p {
-  color: #1779ba;
+  color: #EA526F;
+  
 }
 
 .resizing-img {
-  border: 2px solid black;
+  border: 2px solid #EA526F;
+  border-radius: 20px;
   width: 31em;
   height: 30em;
   margin-left: auto;
