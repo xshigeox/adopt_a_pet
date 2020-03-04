@@ -65,6 +65,10 @@
   }
 }
 
+#hidden {
+  display: none;
+}
+
 #surrender-review {
   text-align: center;
   margin-top: 25px;
@@ -168,7 +172,7 @@
 }
 
 #hero-section-text {
-  color: #EA526F;
+  color: #ea526f;
   text-shadow: 1px 1px 2px #c6d1d8;
   text-align: left;
 }
@@ -194,12 +198,11 @@
 }
 
 .featured-image-block a:hover p {
-  color: #EA526F;
-  
+  color: #ea526f;
 }
 
 .resizing-img {
-  border: 2px solid #EA526F;
+  border: 2px solid #ea526f;
   border-radius: 20px;
   width: 31em;
   height: 30em;
