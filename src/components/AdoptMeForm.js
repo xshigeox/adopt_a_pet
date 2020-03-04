@@ -54,7 +54,8 @@ const AdoptMeForm = props => {
     )
   })
 
-  return (
+    if(props.formReveal === true)  {
+      return(
     <form
       autoComplete="off"
       id="adoptMeForm"
@@ -118,7 +119,8 @@ const AdoptMeForm = props => {
 
       <input type="submit" className="button" value="submit" />
     </form>
-  )
+    )
+  }
 }
 
 export default AdoptMeForm
