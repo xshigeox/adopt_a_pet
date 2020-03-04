@@ -55,8 +55,7 @@ app.get("/api/v1/:pet_type", (req, res) => {
   let petType = req.params.pet_type
   pool
     .query(
-      "SELECT pet_types.type FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id WHERE pet_types.type LIKE $1",
-      [petType]
+      "SELECT adoptable_pets.* FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id WHERE pet_types.type LIKE $1", [petType]
     )
     .then(result => {
       return res.json(result.rows)
