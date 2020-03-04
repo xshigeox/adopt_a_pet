@@ -1,12 +1,16 @@
 /* your styles, here */
-
-.nav-link {
-  margin: 5px;
-}
-
 .top-links {
   position: sticky;
   top: 0;
+  z-index: 1;
+}
+
+.bottom {
+  z-index: -1;
+}
+
+.nav-link {
+  margin: 5px;
 }
 
 .topbar-responsive {
