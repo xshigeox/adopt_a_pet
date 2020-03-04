@@ -12,7 +12,7 @@ describe("adopt me form", () => {
   beforeEach(() => {
     wrapper = mount(
       <BrowserRouter>
-        <AdoptMeForm petId={4} />
+        <AdoptMeForm petId={4} formReveal={true} />
       </BrowserRouter>
     )
   })
