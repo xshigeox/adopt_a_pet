@@ -33,7 +33,7 @@ const App = props => {
         </nav>
       </div>
 
-      <div>
+      <div className="bottom">
         <Switch>
           <Route exact path="/pets" />
           <Route exact path="/guineapigs" />
