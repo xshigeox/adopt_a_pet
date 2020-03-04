@@ -9,6 +9,10 @@ const createError = require("http-errors")
 
 const app = express()
 
+app.get("/", (req, res) => {
+  res.redirect("/pets")
+})
+
 app.set("views", path.join(__dirname, "../views"))
 app.engine(
   "hbs",
