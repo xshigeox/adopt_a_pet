@@ -200,11 +200,13 @@ const SurrenderForm = props => {
     )
   } else {
     return (
-      <>
+      <div>
         <h3 id="surrender-review">Your application is pending review.</h3>
-        {setTimeout(() => setToHome(true), 5000)}
-        {toHome ? <Redirect to="/" /> : null}
-      </>
+        <div id="hidden">
+          {setTimeout(() => setToHome(true), 3000)}
+          {toHome ? <Redirect to="/pets" /> : null}
+        </div>
+      </div>
     )
   }
 }
