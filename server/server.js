@@ -78,6 +78,24 @@ app.get("/api/v1/pets/:id", (req, res) => {
     })
 })
 
+app.get("/api/v1/pets/:petType", (req, res) => {
+  // let petType = 1
+
+  // if (req.params.petType === "guineapigs") {
+  //   petType = 1
+  // } else if (req.params.petType === "reptiles") {
+  //   petType = 2
+  // }
+  pool
+    .query("SELECT * FROM adoptable_pets WHERE pet_type_id = $1", [petType])
+    .then(result => {
+      return res.json(result.rows)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+})
+
 app.post("/api/v1/newPet", (req, res) => {
   const {
     name,
