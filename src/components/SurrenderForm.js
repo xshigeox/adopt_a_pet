@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Redirect } from "react-router-dom"
 import _ from "lodash"
 import ErrorList from "./ErrorList"
 
@@ -17,6 +18,7 @@ const SurrenderForm = props => {
   const [newSurrender, setNewSurrender] = useState(defaultFormValues)
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
+  const [toHome, setToHome] = useState(false)
 
   const isValidForSubmission = () => {
     let submitErrors = {}
@@ -197,7 +199,13 @@ const SurrenderForm = props => {
       </form>
     )
   } else {
-    return <h3 id="surrender-review">Your application is pending review.</h3>
+    return (
+      <>
+        <h3 id="surrender-review">Your application is pending review.</h3>
+        {setTimeout(() => setToHome(true), 5000)}
+        {toHome ? <Redirect to="/" /> : null}
+      </>
+    )
   }
 }
 

@@ -1,10 +1,9 @@
-import React from "react";
-import { Route, BrowserRouter } from "react-router-dom";
-import NavBar from "./NavBar";
-import Orbit from "./Orbit";
+import React from "react"
+import { Route, BrowserRouter } from "react-router-dom"
+import NavBar from "./NavBar"
+import Orbit from "./Orbit"
 
 const App = props => {
-
   return (
     <div>
       <BrowserRouter>
@@ -12,8 +11,7 @@ const App = props => {
       </BrowserRouter>
       <Orbit />
     </div>
-  );
-};
+  )
+}
 
-
-export default App;
+export default App
