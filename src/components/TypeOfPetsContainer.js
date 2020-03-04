@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TypeOfPet from "./TypeOfPet";
+import Orbit from "./Orbit"
 
 const TypeOfPetsContainer = props => {
   const [petType, setPetType] = useState([]);
@@ -31,6 +32,8 @@ const TypeOfPetsContainer = props => {
   });
 
   return (
+    <>
+    <Orbit />
     <div className="featured-image-block-grid">
       <div className="featured-image-block-grid-header columns text-center">
         <h2>Pet Types</h2>
@@ -40,6 +43,7 @@ const TypeOfPetsContainer = props => {
           { listOfPets }
         </div>
     </div>
+    </>
   );
 };
 export default TypeOfPetsContainer;
