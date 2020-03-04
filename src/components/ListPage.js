@@ -12,11 +12,10 @@ const ListPage = props => {
         <div class="about-pets-author">
           <p class="author-name">{name}</p>
           <p class="author-location">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>
             Age: {age}
           </p>
           <p class="author-mutual">
-            <strong>Up to Date on Shots?</strong> {vaccination_status}
+            <strong>Up to Date on Shots?</strong> {(vaccination_status == true) ? "Yes" : "No"}
           </p>
         </div>
       </div>
@@ -24,11 +23,7 @@ const ListPage = props => {
         <div class="add-friend-action">
           <button class="button primary small">
             <i class="fa fa-user-plus" aria-hidden="true"></i>
-            Add Friend
-          </button>
-          <button class="button secondary small">
-            <i class="fa fa-user-times" aria-hidden="true"></i>
-            Ignore
+            Adopt Me
           </button>
         </div>
       </div>

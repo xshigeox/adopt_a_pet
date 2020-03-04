@@ -5,7 +5,7 @@ const ListPageContainer = props => {
   const [lists, setLists] = useState([])
 
   useEffect(() => {
-    fetch("/api/v1/pets/reptiles")
+    fetch("/api/v1/reptile")
       .then(response => {
         if (response.ok) {
           return response
@@ -36,7 +36,6 @@ const ListPageContainer = props => {
         <div class="add-people-header">
           <h6 class="header-title">Pets You Might Not Know</h6>
           {TypeOfPets}
-          <p>Test</p>
         </div>
       </div>
     </div>
