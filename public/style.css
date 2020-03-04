@@ -145,3 +145,58 @@
     animation: fadeIn 1s ease-in;
   }
 }
+
+
+.hero-section {
+  background: url("images/gpturt.jpg") 50% no-repeat;
+  background-size: 80%;
+  height: 60vh;
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.hero-section .hero-section-text {
+  color: #fefefe;
+  text-shadow: 1px 1px 2px #0a0a0a;
+}
+
+.featured-image-block-grid-header {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.featured-image-block {
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.featured-image-block .featured-image-block-title {
+  font-weight: 600;
+  margin-top: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1em;
+  color: #404040;
+  text-align: center;
+}
+
+.featured-image-block a:hover p {
+  color: #1779ba;
+}
+
+.resizing-img {
+  border: 2px solid black;
+  width: 31em;
+  height: 30em;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
