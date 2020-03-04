@@ -1,6 +1,7 @@
 import React from "react"
 import { Route, BrowserRouter, Link, Switch } from "react-router-dom"
 import SurrenderForm from "./SurrenderForm"
+import TypeOfPetsContainer from "./TypeOfPetsContainer"
 
 const App = props => {
   return (
@@ -35,7 +36,7 @@ const App = props => {
 
       <div className="bottom">
         <Switch>
-          <Route exact path="/pets" />
+          <Route exact path="/pets" component={TypeOfPetsContainer} />
           <Route exact path="/guineapigs" />
           <Route exact path="/reptiles" />
           <Route exact path="/adoptions/new" component={SurrenderForm} />
@@ -45,4 +46,4 @@ const App = props => {
   )
 }
 
-export default App;
+export default App
