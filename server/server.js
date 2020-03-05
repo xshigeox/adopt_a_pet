@@ -77,6 +77,18 @@ app.get("/api/v1/pets/:id", (req, res) => {
     })
 })
 
+app.post("/api/v1/login", (req, res) => {
+  const { username, password } = req.body
+  pool.query("SELECT * FROM admin_table WHERE username = $1 and password = $2", [username, password])
+    .then(result => {
+      console.log(result.rows)
+      return res.json(result)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+})
+
 app.post("/api/v1/newPet", (req, res) => {
   const {
     name,

@@ -13,3 +13,4 @@ INSERT INTO pet_surrender_applications (name, phone_number, email, pet_name, pet
 ('John', 6178825647, 'JohnM@gmail.com', 'Bob', 2, 2, 'snakeimg.com', FALSE , 'pending'),
 ('Jessica', 6177843921, 'JMatos@gmail.com', 'Tom', 8, 1, 'guineapig2img.com', TRUE, 'pending');
 
+INSERT INTO admin_table (name, username, password) VALUES ('Lucas Green', 'root', 'root');

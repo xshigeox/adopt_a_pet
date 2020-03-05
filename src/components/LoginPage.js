@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, Fragment } from "react"
 
 const LoginPage = props => {
+  const initiError = {
+    username: "",
+    password: ""
+  }
   const [userName, setUserName] = useState("")
   const [password, setPassword] = useState("")
-  const [errors, setErrors] = useState({})
-
-  useEffect(() => {})
+  const [errors, setErrors] = useState(initiError)
+  const [display, setDisplay] = useState("bg-modal")
 
   const submitLogin = event => {
     event.preventDefault()
     const loginInfo = {
-        userName: userName,
-        password: password
+      username: userName,
+      password: password
     }
-    alert(userName + " : " + password)
+
     if (isValidForSubmission()) {
       fetch("/api/v1/login", {
         method: "POST",
@@ -22,20 +25,48 @@ const LoginPage = props => {
       })
         .then(response => {
           if (response.ok) {
-
+            return response.json()
           } else {
             let errorMessage = `${response.statues} (${response.statusText})`,
-            error = new Error(errorMessage)
+              error = new Error(errorMessage)
             throw error
           }
         })
+        .then(data => {
+          let submitErrors
+          if (data.rows.length !== 0) {
+            setDisplay("bg-hide")
+          } else {
+            submitErrors = {
+              ...submitErrors,
+              ["username"]: "username or password invalid!"
+            }
+          }
+          setErrors(submitErrors)
+          setUserName("")
+          setPassword("")
+        })
         .catch(error => console.error(`Error in fetch: ${error.message}`))
-    } else {
-        
     }
   }
 
-  const isValidForSubmission = () => {}
+  const isValidForSubmission = () => {
+    let submitErrors = {}
+    if (!userName || userName === "") {
+      submitErrors = {
+        ...submitErrors,
+        ["username"]: "username invalid!"
+      }
+    }
+    if (!password || password === "") {
+      submitErrors = {
+        ...submitErrors,
+        ["password"]: "password invalid!"
+      }
+    }
+    setErrors(submitErrors)
+    return Object.entries(submitErrors).length === 0
+  }
 
   const onUserNameChange = event => {
     event.preventDefault()
@@ -46,10 +77,9 @@ const LoginPage = props => {
     event.preventDefault()
     setPassword(event.target.value)
   }
-
   return (
-    <div>
-      <div className="bg-modal">
+    <Fragment>
+      <div className={display}>
         <div className="modal-content">
           <img
             className="image-resized"
@@ -58,12 +88,8 @@ const LoginPage = props => {
           />
           <h4 id="hero-section-text">Login Admin</h4>
           <div className="alert-box">
-              <p>Username invalid</p>
-              <p>Password invalid</p>
-              {/* <ul>
-                  <li>Username invalid</li>
-                  <li>Password invalid</li>
-              </ul> */}
+            <p>{errors.username ? errors.username : ""}</p>
+            <p>{errors.password ? errors.password : ""}</p>
           </div>
           <form onSubmit={submitLogin} action="">
             <input
@@ -71,18 +97,23 @@ const LoginPage = props => {
               type="text"
               name="username"
               placeholder="User Name"
+              value={userName}
             />
             <input
               onChange={onPasswordChange}
               type="password"
               name="password"
               placeholder="Password"
+              value={password}
             />
             <input type="submit" className="button" value="Submit" />
           </form>
         </div>
       </div>
-    </div>
+      <div>
+        <h1>ADMIN PAGE</h1>
+      </div>
+    </Fragment>
   )
 }
 
