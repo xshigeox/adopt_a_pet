@@ -2,9 +2,9 @@ import React from "react"
 import { Route, BrowserRouter, Link, Switch } from "react-router-dom"
 import SurrenderForm from "./SurrenderForm"
 import TypeOfPetsContainer from "./TypeOfPetsContainer"
+import LoginPage from "./LoginPage"
 import ListPageContainer from "./ListPageContainer"
 import ShowPage from "./ShowPage"
-
 const App = props => {
   return (
     <BrowserRouter>
@@ -30,12 +30,14 @@ const App = props => {
                 <li>
                   <Link to="/adoptions/new">Put up for Adoption</Link>
                 </li>
+                <li className="admin-button">
+                  <Link to="/login">Login</Link>
+                </li>
               </ul>
             </div>
           </div>
         </nav>
       </div>
-
       <div className="bottom">
         <Switch>
           <Route exact path="/pets" component={TypeOfPetsContainer} />
@@ -49,11 +51,11 @@ const App = props => {
             <ListPageContainer petType={"reptile"} petTypeName={"Reptiles"} />
           </Route>
           <Route exact path="/adoptions/new" component={SurrenderForm} />
+          <Route exact path="/login" component={LoginPage} />
           <Route exact path="/pets/:id" component={ShowPage} />
         </Switch>
       </div>
     </BrowserRouter>
   )
 }
-
 export default App

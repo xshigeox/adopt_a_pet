@@ -20,3 +20,6 @@ INSERT INTO adoption_applications (name, phone_number, email, home_status, appli
 ('Erica', 6173902820, 'ESmith@gmail.com', 'Own', 'pending',3),
 ('Franklin', 6178930298, 'FranklinJ@gmail.com', 'Rent', 'pending', 2),
 ('Nancy', 6172097654, 'NLee@gmail.com', 'Rent', 'pending',4);
+
+INSERT INTO admin_table (name, username, password) VALUES ('Lucas Green', 'root', 'root');
+
