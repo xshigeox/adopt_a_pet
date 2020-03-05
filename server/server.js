@@ -82,11 +82,12 @@ app.post("/api/v1/login", (req, res) => {
   const { username, password } = req.body
   pool.query("SELECT * FROM admin_table WHERE username = $1 and password = $2", [username, password])
     .then(result => {
-      console.log(result.rows)
       return res.json(result)
     })
     .catch(error => {
       console.log(error)
+    })
+})
 
 app.post("/api/v1/adoptionApplication", (req, res) => {
   console.log(req.body)
@@ -98,19 +99,19 @@ app.post("/api/v1/adoptionApplication", (req, res) => {
     applicationStatus,
     petId
   } = req.body
-  pool
-    .query(
+  pool.query(
       "INSERT INTO adoption_applications(name, phone_number, email, home_status, application_status, pet_id) VALUES($1, $2, $3, $4, $5, $6)",
       [name, phoneNumber, email, homeStatus, applicationStatus, petId]
     )
     .then(result => {
       return res.json(result.rows)
     })
-    .catch(err => {
-      console.log(err)
-      res.sendStatus(500)
+    .catch(error => {
+      console.log(error)
     })
 })
+      
+
 
 app.post("/api/v1/newPet", (req, res) => {
   const {
