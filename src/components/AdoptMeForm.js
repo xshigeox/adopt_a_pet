@@ -54,71 +54,73 @@ const AdoptMeForm = props => {
     )
   })
 
-  return (
-    <form
-      autoComplete="off"
-      id="adoptMeForm"
-      className="callout"
-      onSubmit={onSubmitHandler}
-    >
-      <h1>Adopt Me!</h1>
-      <ErrorList errors={errors} />
-      <div>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={newApplication.name}
-          onChange={handleInputChange}
-        />
-      </div>
-
-      <div>
-        <label htmlFor="phoneNumber">Phone Number:</label>
-        <input
-          type="text"
-          id="phoneNumber"
-          name="phoneNumber"
-          value={newApplication.phoneNumber}
-          onChange={handleInputChange}
-        />
-      </div>
-
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="text"
-          id="email"
-          name="email"
-          value={newApplication.email}
-          onChange={handleInputChange}
-        />
-      </div>
-
-      <div>
-        <label htmlFor="homeStatus">Home Status:</label>
-        <select
-          id="homeStatus"
-          onChange={handleInputChange}
-          value={newApplication.homeStatus}
+    if(props.formReveal === true)  {
+      return(
+        <form
+          autoComplete="off"
+          id="adoptMeForm"
+          className="callout"
+          onSubmit={onSubmitHandler}
         >
-          {homeStatus}
-        </select>
-      </div>
+        <h1>Adopt Me!</h1>
+        <ErrorList errors={errors} />
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={newApplication.name}
+            onChange={handleInputChange}
+          />
+        </div>
 
-      <input
-        type="hidden"
-        name="applicationStatus"
-        id="applicationStatus"
-        value="pending"
-      />
+        <div>
+          <label htmlFor="phoneNumber">Phone Number:</label>
+          <input
+            type="text"
+            id="phoneNumber"
+            name="phoneNumber"
+            value={newApplication.phoneNumber}
+            onChange={handleInputChange}
+          />
+        </div>
 
-      <input type="hidden" name="petId" id="petId" value={props.petId} />
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            value={newApplication.email}
+            onChange={handleInputChange}
+          />
+        </div>
 
-      <input type="submit" className="button" value="submit" />
-    </form>
-  )
+        <div>
+          <label htmlFor="homeStatus">Home Status:</label>
+          <select
+            id="homeStatus"
+            onChange={handleInputChange}
+            value={newApplication.homeStatus}
+          >
+            {homeStatus}
+          </select>
+        </div>
+
+        <input
+          type="hidden"
+          name="applicationStatus"
+          id="applicationStatus"
+          value="pending"
+        />
+
+        <input type="hidden" name="petId" id="petId" value={props.petId} />
+
+        <input type="submit" className="button" value="submit" />
+      </form>
+    )
+  }
 }
 
 export default AdoptMeForm

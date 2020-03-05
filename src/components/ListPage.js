@@ -1,8 +1,7 @@
 import React from "react"
 
 const ListPage = props => {
-  const { img_url, name, age, vaccination_status } = props.data
-  console.log(vaccination_status)
+  const { img_url, name, vaccination_status, age } = props.data
 
   return (
     <div className="row add-pets-section">
@@ -11,10 +10,10 @@ const ListPage = props => {
           <img className="avatar-image" src={img_url} alt={name} />
         </div>
         <div className="about-pets-author">
-          <p className="author-name">Name {name}</p>
-          <p className="author-location">Age {age}</p>
+          <p className="author-name">{name}</p>
+          <p className="author-location">Age: {age}</p>
           <p className="author-mutual">
-            <strong>Shots up to Date? </strong>{" "}
+            <strong>Up to Date on Shots?</strong>{" "}
             {vaccination_status == true ? "Yes" : "No"}
           </p>
         </div>
@@ -23,7 +22,7 @@ const ListPage = props => {
         <div className="add-friend-action">
           <button className="button primary small">
             <i className="fa fa-user-plus" aria-hidden="true"></i>
-            More Information
+            Adopt Me
           </button>
         </div>
       </div>

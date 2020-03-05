@@ -64,9 +64,13 @@ app.get("/api/v1/:pet_type", (req, res) => {
 =======
   pool
     .query(
+<<<<<<< HEAD
       "SELECT pet_types.type FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id WHERE pet_types.type LIKE $1",
       [petType]
 >>>>>>> 8d84d945a344be71f3713ee96eb91afd257d4866
+=======
+      "SELECT adoptable_pets.* FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id WHERE pet_types.type LIKE $1", [petType]
+>>>>>>> d6da04787cdab7758319dff9c67b6c5ab0dede5e
     )
     .then(result => {
       return res.json(result.rows)
