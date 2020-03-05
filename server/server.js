@@ -110,8 +110,6 @@ app.post("/api/v1/adoptionApplication", (req, res) => {
       console.log(error)
     })
 })
-      
-
 
 app.post("/api/v1/newPet", (req, res) => {
   const {
