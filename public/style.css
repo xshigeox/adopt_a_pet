@@ -157,8 +157,8 @@
 
 .hero-section {
   background: url("images/gpsturts.jpg") 50% no-repeat;
-  background-size: 76%;
-  height: 60vh;
+  background-size: 60%;
+  height: 35vh;
   text-align: center;
   display: -webkit-flex;
   display: -ms-flexbox;
