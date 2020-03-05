@@ -88,8 +88,8 @@ const LoginPage = props => {
           />
           <h4 id="hero-section-text">Login Admin</h4>
           <div className="alert-box">
-            <p>{errors.username ? errors.username : ""}</p>
-            <p>{errors.password ? errors.password : ""}</p>
+            <p>{errors ? errors.username : ""}</p>
+            <p>{errors ? errors.password : ""}</p>
           </div>
           <form onSubmit={submitLogin} action="">
             <input
