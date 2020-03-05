@@ -8,10 +8,14 @@ const ListPage = props => {
     <div className="row add-pets-section">
       <div className="small-12 medium-6 columns about-pets">
         <div className="about-pets-avatar">
+        <Link to={`/pets/${id}`}>
           <img className="avatar-image" src={img_url} alt={name} />
+          </Link>
         </div>
         <div className="about-pets-author">
+        <Link to={`/pets/${id}`}>
           <p className="author-name">{name}</p>
+          </Link>
           <p className="author-location">Age: {age}</p>
           <p className="author-mutual">
             <strong>Up to Date on Shots?</strong>{" "}
