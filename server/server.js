@@ -33,10 +33,13 @@ const pool = new Pool({
 app.get("/api/v1/pet_type", (req, res) => {
   pool
     .query(
-      "SELECT pet_types.type, pet_types.description, adoptable_pets.img_url FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id GROUP BY pet_types.type, pet_types.description, adoptable_pets.img_url LIMIT 2"
+      "SELECT pet_types.type, pet_types.description, adoptable_pets.img_url FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id GROUP BY pet_types.type, pet_types.description, adoptable_pets.img_url"
     )
     .then(result => {
-      return res.json(result.rows)
+      let arrayTypePets = []
+      arrayTypePets.push(result.rows.find(animal => animal.type === 'reptile'))
+      arrayTypePets.push(result.rows.find(animal => animal.type === 'guinea pig'))
+      return res.json(arrayTypePets)
     })
     .catch(error => {
       console.log(error)
