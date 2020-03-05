@@ -28,6 +28,7 @@ const { Pool } = require("pg")
 const pool = new Pool({
   connectionString: "postgres://postgres:password@127.0.0.1:5432/adopt_a_pet"
 })
+
 // Express routes
 app.get("/api/v1/pet_type", (req, res) => {
   pool
@@ -41,6 +42,20 @@ app.get("/api/v1/pet_type", (req, res) => {
       console.log(error)
     })
 })
+
+app.get("/api/v1/adoptionApplications", (req, res) => {
+  pool
+    .query(
+      "SELECT adoption_applications.name AS person_name, adoption_applications.phone_number, adoption_applications.email, adoption_applications.home_status, adoption_applications.application_status, adoptable_pets.name AS pet_name, adoptable_pets.img_url, adoptable_pets.vaccination_status, adoptable_pets.adoption_story, adoptable_pets.adoption_status FROM adoption_applications JOIN adoptable_pets ON adoptable_pets.id = adoption_applications.pet_id"
+    )
+    .then(result => {
+      return res.json(result.rows)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+})
+
 app.get("/api/v1/:pet_type", (req, res) => {
   let petType = req.params.pet_type
   pool
@@ -55,6 +70,7 @@ app.get("/api/v1/:pet_type", (req, res) => {
       console.log(error)
     })
 })
+
 app.get("/api/v1/pets/:id", (req, res) => {
   const animalId = req.params.id
   pool
@@ -66,9 +82,14 @@ app.get("/api/v1/pets/:id", (req, res) => {
       console.log(error)
     })
 })
+
 app.post("/api/v1/login", (req, res) => {
   const { username, password } = req.body
-  pool.query("SELECT * FROM admin_table WHERE username = $1 and password = $2", [username, password])
+  pool
+    .query("SELECT * FROM admin_table WHERE username = $1 and password = $2", [
+      username,
+      password
+    ])
     .then(result => {
       return res.json(result)
     })
@@ -76,6 +97,7 @@ app.post("/api/v1/login", (req, res) => {
       console.log(error)
     })
 })
+
 app.post("/api/v1/adoptionApplication", (req, res) => {
   console.log(req.body)
   const {
@@ -86,7 +108,8 @@ app.post("/api/v1/adoptionApplication", (req, res) => {
     applicationStatus,
     petId
   } = req.body
-  pool.query(
+  pool
+    .query(
       "INSERT INTO adoption_applications(name, phone_number, email, home_status, application_status, pet_id) VALUES($1, $2, $3, $4, $5, $6)",
       [name, phoneNumber, email, homeStatus, applicationStatus, petId]
     )
@@ -97,6 +120,7 @@ app.post("/api/v1/adoptionApplication", (req, res) => {
       console.log(error)
     })
 })
+
 app.post("/api/v1/newPet", (req, res) => {
   const {
     name,

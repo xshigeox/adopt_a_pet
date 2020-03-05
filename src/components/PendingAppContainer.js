@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react"
 import PendingAppList from "./PendingAppList"
 
-const PendingAppContainer = ()   =>  {
+const PendingAppContainer = () => {
   const [list, setList] = useState([])
 
   useEffect(() => {
-    fetch("/api/v1/adoption_applications") 
+    fetch("/api/v1/adoptionApplications")
       .then(response => {
         if (response.ok) {
           return response
@@ -13,7 +13,7 @@ const PendingAppContainer = ()   =>  {
           let errorMessage = `${response.status} (${response.statusText})`,
             error = new Error(errorMessage)
           throw error
-        } 
+        }
       })
       .then(result => {
         return result.json()
@@ -26,19 +26,23 @@ const PendingAppContainer = ()   =>  {
       })
   }, [])
 
-  const adoptionApplicants = list.map(element  =>  {
-    return <PendingAppList data={element} />
-  })
+  if (list[0] !== undefined) {
+    const adoptionApplicants = list.map(element => {
+      return <PendingAppList key={element.email} data={element} />
+    })
 
-  return(
-    <div>
-      <div className="pets-you-might-know">
-        <div className="add-people-header">
-          <h6 className="header-title">Adoption Applicants</h6>
-          {adoptionApplicants}
+    return (
+      <div>
+        <div className="pets-you-might-know">
+          <div className="add-people-header">
+            <h6 className="header-title">Adoption Applicants</h6>
+            {adoptionApplicants}
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  } else {
+    return ""
+  }
 }
 export default PendingAppContainer

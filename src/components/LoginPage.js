@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from "react"
+import PendingAppContainer from "./PendingAppContainer"
 
 const LoginPage = props => {
   const initiError = {
@@ -78,42 +79,43 @@ const LoginPage = props => {
     setPassword(event.target.value)
   }
   return (
-    <Fragment>
-      <div className={display}>
-        <div className="modal-content">
-          <img
-            className="image-resized"
-            src="https://cdn2.iconfinder.com/data/icons/animal-vivid-volume-1/256/Chameleon-512.png"
-            alt=""
-          />
-          <h4 id="hero-section-text">Login Admin</h4>
-          <div className="alert-box">
-            <p>{errors ? errors.username : ""}</p>
-            <p>{errors ? errors.password : ""}</p>
-          </div>
-          <form onSubmit={submitLogin} action="">
-            <input
-              onChange={onUserNameChange}
-              type="text"
-              name="username"
-              placeholder="User Name"
-              value={userName}
-            />
-            <input
-              onChange={onPasswordChange}
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={password}
-            />
-            <input type="submit" className="button" value="Submit" />
-          </form>
-        </div>
-      </div>
-      <div>
-        <h1>ADMIN PAGE</h1>
-      </div>
-    </Fragment>
+    <PendingAppContainer />
+    // <Fragment>
+    //   <div className={display}>
+    //     <div className="modal-content">
+    //       <img
+    //         className="image-resized"
+    //         src="https://cdn2.iconfinder.com/data/icons/animal-vivid-volume-1/256/Chameleon-512.png"
+    //         alt=""
+    //       />
+    //       <h4 id="hero-section-text">Login Admin</h4>
+    //       <div className="alert-box">
+    //         <p>{errors ? errors.username : ""}</p>
+    //         <p>{errors ? errors.password : ""}</p>
+    //       </div>
+    //       <form onSubmit={submitLogin} action="">
+    //         <input
+    //           onChange={onUserNameChange}
+    //           type="text"
+    //           name="username"
+    //           placeholder="User Name"
+    //           value={userName}
+    //         />
+    //         <input
+    //           onChange={onPasswordChange}
+    //           type="password"
+    //           name="password"
+    //           placeholder="Password"
+    //           value={password}
+    //         />
+    //         <input type="submit" className="button" value="Submit" />
+    //       </form>
+    //     </div>
+    //   </div>
+    //   <div>
+    //     <PendingAppContainer />
+    //   </div>
+    // </Fragment>
   )
 }
 

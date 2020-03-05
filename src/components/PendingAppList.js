@@ -1,10 +1,21 @@
 import React from "react"
 
-const PendingAppList = props   =>  {
-  const {petName, img_url, vaccinationStatus, adoptionStory, adoptionStatus, name, phone, email, homeStatus, applicationStatus} = props.data
+const PendingAppList = props => {
+  console.log(props.data)
+  const {
+    petName,
+    img_url,
+    vaccinationStatus,
+    adoptionStory,
+    adoptionStatus,
+    person_name,
+    phone_number,
+    email,
+    homeStatus,
+    applicationStatus
+  } = props.data
 
-
-  return(
+  return (
     <div className="row add-pets-section">
       <div className="about-pets-avatar">
         <img className="avatar-image" src={img_url} alt={petName} />
@@ -23,8 +34,8 @@ const PendingAppList = props   =>  {
       </div>
       <div className="small-12 medium-6 columns about-pets">
         <div className="about-pets-author">
-          <p className="author-name">Applicant Name: {name}</p>
-          <p className="author-location">Phone Number: {phone}</p>
+          <p className="author-name">Applicant Name: {person_name}</p>
+          <p className="author-location">Phone Number: {phone_number}</p>
           <p className="author-location">Email: {email}</p>
         </div>
       </div>
@@ -40,13 +51,13 @@ const PendingAppList = props   =>  {
             <i className="fa fa-user-plus" aria-hidden="true"></i>
             Approve
           </button>
-          <button class="button secondary small">
-            <i class="fa fa-user-times" aria-hidden="true"></i>
+          <button className="button secondary small">
+            <i className="fa fa-user-times" aria-hidden="true"></i>
             Deny
           </button>
         </div>
       </div>
     </div>
   )
-} 
+}
 export default PendingAppList
