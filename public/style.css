@@ -276,7 +276,6 @@
   font-size: 2rem;
   color: #ea526f;
   text-shadow: 5px 5px 5px #c6d1d8;
-  margin-left: 1rem;
 }
 
 .pets-you-might-know .add-pets-section {
@@ -422,4 +421,8 @@
   background-color: #ea526f;
   color: #fefefe;
   border-radius: 10px;
+}
+
+.form-format {
+  padding: 3rem;
 }
