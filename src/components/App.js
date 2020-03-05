@@ -2,6 +2,7 @@ import React from "react"
 import { Route, BrowserRouter, Link, Switch } from "react-router-dom"
 import SurrenderForm from "./SurrenderForm"
 import TypeOfPetsContainer from "./TypeOfPetsContainer"
+import LoginPage from "./LoginPage"
 
 const App = props => {
   return (
@@ -28,6 +29,9 @@ const App = props => {
                 <li>
                   <Link to="/adoptions/new">Put up for Adoption</Link>
                 </li>
+                <li className="admin-button">
+                  <Link to="/login">Login</Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -40,6 +44,7 @@ const App = props => {
           <Route exact path="/guineapigs" />
           <Route exact path="/reptiles" />
           <Route exact path="/adoptions/new" component={SurrenderForm} />
+          <Route exact path="/login" component={LoginPage} />
         </Switch>
       </div>
     </BrowserRouter>
