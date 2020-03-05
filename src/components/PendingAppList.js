@@ -3,48 +3,52 @@ import React from "react"
 const PendingAppList = props => {
   console.log(props.data)
   const {
-    petName,
+    pet_name,
     img_url,
-    vaccinationStatus,
-    adoptionStory,
-    adoptionStatus,
+    vaccination_status,
+    adoption_story,
+    adoption_status,
     person_name,
     phone_number,
     email,
-    homeStatus,
-    applicationStatus
+    home_status,
+    application_status
   } = props.data
+
+  let status
+  if (vaccination_status === true) {
+    status = "Up to Date"
+  } else {
+    status = "Not Up to Date"
+  }
 
   return (
     <div className="row add-pets-section">
       <div className="about-pets-avatar">
-        <img className="avatar-image" src={img_url} alt={petName} />
+        <img className="avatar-image" src={img_url} alt={pet_name} />
       </div>
+
       <div className="small-12 medium-6 columns about-pets">
         <div className="about-pets-author">
-          <p className="author-location">Pet Name: {petName}</p>
-          <p className="author-name">Vaccination Status: {vaccinationStatus}</p>
+          <p className="author-name">Pet Name: {pet_name}</p>
+          <p className="author-location">Vaccination Status: {status}</p>
+          <p className="author-location">Adoption Story: {adoption_story}</p>
+          <p className="author-location">Adoption Status: {adoption_status}</p>
         </div>
       </div>
-      <div className="small-12 medium-6 columns about-pets">
-        <div className="about-pets-author">
-          <p className="author-name">Adoption Story: {adoptionStory}</p>
-          <p className="author-name">Adoption Status: {adoptionStatus}</p>
-        </div>
-      </div>
+
       <div className="small-12 medium-6 columns about-pets">
         <div className="about-pets-author">
           <p className="author-name">Applicant Name: {person_name}</p>
           <p className="author-location">Phone Number: {phone_number}</p>
           <p className="author-location">Email: {email}</p>
+          <p className="author-location">Home Status: {home_status}</p>
+          <p className="author-location">
+            Application Status: {application_status}
+          </p>
         </div>
       </div>
-      <div className="small-12 medium-6 columns about-pets">
-        <div className="about-pets-author">
-          <p className="author-name">Home Status: {homeStatus}</p>
-          <p className="author-name">Application Status: {applicationStatus}</p>
-        </div>
-      </div>
+
       <div className="small-12 medium-6 columns add-friend">
         <div className="add-friend-action">
           <button className="button primary small">

@@ -34,10 +34,7 @@ const PendingAppContainer = () => {
     return (
       <div>
         <div className="pets-you-might-know">
-          <div className="add-people-header">
-            <h6 className="header-title">Adoption Applicants</h6>
-            {adoptionApplicants}
-          </div>
+          <div className="add-people-header">{adoptionApplicants}</div>
         </div>
       </div>
     )

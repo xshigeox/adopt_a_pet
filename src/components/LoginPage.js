@@ -78,44 +78,51 @@ const LoginPage = props => {
     event.preventDefault()
     setPassword(event.target.value)
   }
+
+  let adminPage
+  if (display === "bg-hide") {
+    adminPage = (
+      <div>
+        <PendingAppContainer />
+      </div>
+    )
+  }
   return (
-    <PendingAppContainer />
-    // <Fragment>
-    //   <div className={display}>
-    //     <div className="modal-content">
-    //       <img
-    //         className="image-resized"
-    //         src="https://cdn2.iconfinder.com/data/icons/animal-vivid-volume-1/256/Chameleon-512.png"
-    //         alt=""
-    //       />
-    //       <h4 id="hero-section-text">Login Admin</h4>
-    //       <div className="alert-box">
-    //         <p>{errors ? errors.username : ""}</p>
-    //         <p>{errors ? errors.password : ""}</p>
-    //       </div>
-    //       <form onSubmit={submitLogin} action="">
-    //         <input
-    //           onChange={onUserNameChange}
-    //           type="text"
-    //           name="username"
-    //           placeholder="User Name"
-    //           value={userName}
-    //         />
-    //         <input
-    //           onChange={onPasswordChange}
-    //           type="password"
-    //           name="password"
-    //           placeholder="Password"
-    //           value={password}
-    //         />
-    //         <input type="submit" className="button" value="Submit" />
-    //       </form>
-    //     </div>
-    //   </div>
-    //   <div>
-    //     <PendingAppContainer />
-    //   </div>
-    // </Fragment>
+    <Fragment>
+      <div className={display}>
+        <div className="modal-content">
+          <img
+            className="image-resized"
+            src="https://cdn2.iconfinder.com/data/icons/animal-vivid-volume-1/256/Chameleon-512.png"
+            alt=""
+          />
+          <h4 id="hero-section-text">Login Admin</h4>
+          <div className="alert-box">
+            <p>{errors ? errors.username : ""}</p>
+            <p>{errors ? errors.password : ""}</p>
+          </div>
+          <form onSubmit={submitLogin} action="">
+            <input
+              onChange={onUserNameChange}
+              type="text"
+              name="username"
+              placeholder="User Name"
+              value={userName}
+            />
+            <input
+              onChange={onPasswordChange}
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={password}
+            />
+            <input type="submit" className="button" value="Submit" />
+          </form>
+        </div>
+      </div>
+
+      <div>{adminPage}</div>
+    </Fragment>
   )
 }
 
