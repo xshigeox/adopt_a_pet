@@ -3,9 +3,10 @@ import ListPage from "./ListPage"
 
 const ListPageContainer = props => {
   const [lists, setLists] = useState([])
+  let petType = props.petType
 
   useEffect(() => {
-    fetch("/api/v1/reptile")
+    fetch(`/api/v1/${petType}`)
       .then(response => {
         if (response.ok) {
           return response
@@ -27,14 +28,14 @@ const ListPageContainer = props => {
   }, [])
 
   const TypeOfPets = lists.map(element => {
-    return <ListPage data={element} />
+    return <ListPage key={element.id} data={element} />
   })
 
   return (
     <div>
       <div className="pets-you-might-know">
         <div className="add-people-header">
-          <h6 className="header-title">Pets You Might Not Know</h6>
+          <h6 className="header-title">{props.petTypeName}</h6>
           {TypeOfPets}
         </div>
       </div>
