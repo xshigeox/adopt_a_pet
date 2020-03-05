@@ -98,7 +98,7 @@ const SurrenderForm = props => {
         className="callout"
         onSubmit={addNewPet}
       >
-        <h1>Surrender a Pet</h1>
+        <h1 className="header-title">Surrender a Pet</h1>
         <ErrorList errors={errors} />
         <div>
           <label htmlFor="name">Name:</label>
