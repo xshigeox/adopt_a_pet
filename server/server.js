@@ -50,7 +50,6 @@ app.get("/api/v1/adoption_applications", (req, res) => {
       console.log(error)
     })
 })
-// SELECT * FROM adoption_applications
 
 app.get("/api/v1/pet_type", (req, res) => {
   pool

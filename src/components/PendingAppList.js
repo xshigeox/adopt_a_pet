@@ -7,9 +7,9 @@ const PendingAppList = props   =>  {
   return(
     <div className="row add-pets-section">
       <div className="about-pets-avatar">
-          <img className="avatar-image" src={img_url} alt={petName} />
-        </div>
-       <div className="small-12 medium-6 columns about-pets">
+        <img className="avatar-image" src={img_url} alt={petName} />
+      </div>
+      <div className="small-12 medium-6 columns about-pets">
         <div className="about-pets-author">
           <p className="author-location">Pet Name: {petName}</p>
           <p className="author-name">Vaccination Status: {vaccinationStatus}</p>
