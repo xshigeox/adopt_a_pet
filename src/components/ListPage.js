@@ -1,7 +1,8 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 const ListPage = props => {
-  const { img_url, name, vaccination_status, age } = props.data
+  const { img_url, name, vaccination_status, age, id } = props.data
 
   return (
     <div className="row add-pets-section">
@@ -20,10 +21,9 @@ const ListPage = props => {
       </div>
       <div className="small-12 medium-6 columns add-friend">
         <div className="add-friend-action">
-          <button className="button primary small">
-            <i className="fa fa-user-plus" aria-hidden="true"></i>
-            Adopt Me
-          </button>
+          <Link to={`/pets/${id}`}>
+            <button className="button primary small">Adopt Me</button>
+          </Link>
         </div>
       </div>
     </div>
