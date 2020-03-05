@@ -5,7 +5,6 @@ import TypeOfPetsContainer from "./TypeOfPetsContainer"
 import LoginPage from "./LoginPage"
 import ListPageContainer from "./ListPageContainer"
 import ShowPage from "./ShowPage"
-
 const App = props => {
   return (
     <BrowserRouter>
@@ -39,7 +38,6 @@ const App = props => {
           </div>
         </nav>
       </div>
-
       <div className="bottom">
         <Switch>
           <Route exact path="/pets" component={TypeOfPetsContainer} />
@@ -60,5 +58,4 @@ const App = props => {
     </BrowserRouter>
   )
 }
-
 export default App
