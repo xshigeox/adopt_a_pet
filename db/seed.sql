@@ -11,9 +11,15 @@ INSERT INTO adoptable_pets (name, img_url, age, vaccination_status, adoption_sto
 ('Pancake', 'https://i.pinimg.com/originals/f8/bc/80/f8bc8082646c8bc7e7a87b9d6b02543f.jpg', 4, TRUE,'This guy loves to lounge around', 'Pending', 1),
 ('Dino', 'https://www.zillarules.com/-/media/images/zilla-na/us/blog-articles/myths-facts-about-bearded-dragon-care/bearded-dragon.jpg?h=350&w=350&la=en&hash=BB45C333590D6C0AF6E426FC419D6A3B224212BE', 3, TRUE,'Great lizard just looking to play.', 'Pending', 2);
 
-
 INSERT INTO pet_surrender_applications (name, phone_number, email, pet_name, pet_age, pet_type_id, pet_img_url, vaccination_status, application_status) VALUES
 ('John', 6178825647, 'JohnM@gmail.com', 'Bob', 2, 2, 'snakeimg.com', FALSE , 'pending'),
 ('Jessica', 6177843921, 'JMatos@gmail.com', 'Tom', 8, 1, 'guineapig2img.com', TRUE, 'pending');
 
+INSERT INTO adoption_applications (name, phone_number, email, home_status, application_status, pet_id) VALUES
+('Robert', 6178964573, 'RobertM@gmail.com', 'Rent', 'pending', 1),
+('Erica', 6173902820, 'ESmith@gmail.com', 'Own', 'pending',3),
+('Franklin', 6178930298, 'FranklinJ@gmail.com', 'Rent', 'pending', 2),
+('Nancy', 6172097654, 'NLee@gmail.com', 'Rent', 'pending',4);
+
 INSERT INTO admin_table (name, username, password) VALUES ('Lucas Green', 'root', 'root');
+

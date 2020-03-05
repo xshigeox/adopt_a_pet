@@ -1,21 +1,4 @@
 import React from "react"
-<<<<<<< HEAD
-import { Route, BrowserRouter } from "react-router-dom"
-import NavBar from "./NavBar"
-import Orbit from "./Orbit"
-
-const App = props => {
-  return (
-    <div>
-      <BrowserRouter>
-        <Route exact path="/" component={NavBar} />
-      </BrowserRouter>
-      <Orbit />
-    </div>
-  )
-}
-
-=======
 import { Route, BrowserRouter, Link, Switch } from "react-router-dom"
 import SurrenderForm from "./SurrenderForm"
 import TypeOfPetsContainer from "./TypeOfPetsContainer"
@@ -56,7 +39,6 @@ const App = props => {
           </div>
         </nav>
       </div>
-
       <div className="bottom">
         <Switch>
           <Route exact path="/pets" component={TypeOfPetsContainer} />
@@ -77,6 +59,4 @@ const App = props => {
     </BrowserRouter>
   )
 }
-
->>>>>>> 1e4b657b2bcf92867acb470a00f31ea60c73c3b3
 export default App
