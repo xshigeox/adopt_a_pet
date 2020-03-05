@@ -8,8 +8,12 @@ INSERT INTO adoptable_pets (name, img_url, age, vaccination_status, adoption_sto
 ('Rocky', 'https://cdn.mos.cms.futurecdn.net/gJJFamQca86CibEeDmegk-1024-80.jpg', 7, FALSE,'Is a ornery guineapig that hates belly rubs.', 'Pending', 1),
 ('Harry', 'https://img1.grunge.com/img/gallery/the-truth-about-why-there-arent-snakes-in-ireland/intro-1547479326.jpg', 2, TRUE,'Is a snake with a huge appetite for bunnies.', 'Pending', 2);
 
-
 INSERT INTO pet_surrender_applications (name, phone_number, email, pet_name, pet_age, pet_type_id, pet_img_url, vaccination_status, application_status) VALUES
 ('John', 6178825647, 'JohnM@gmail.com', 'Bob', 2, 2, 'snakeimg.com', FALSE , 'pending'),
 ('Jessica', 6177843921, 'JMatos@gmail.com', 'Tom', 8, 1, 'guineapig2img.com', TRUE, 'pending');
 
+INSERT INTO adoption_applications (name, phone_number, email, home_status, application_status, pet_id) VALUES
+('Robert', 6178964573, 'RobertM@gmail.com', 'Rent', 'pending', 1),
+('Erica', 6173902820, 'ESmith@gmail.com', 'Own', 'pending',3),
+('Franklin', 6178930298, 'FranklinJ@gmail.com', 'Rent', 'pending', 2),
+('Nancy', 6172097654, 'NLee@gmail.com', 'Rent', 'pending',4);

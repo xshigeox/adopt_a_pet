@@ -6,7 +6,7 @@ const hbsMiddleware = require("express-handlebars")
 const fs = require("fs")
 const _ = require("lodash")
 const createError = require("http-errors")
-
+ 
 const app = express()
 
 app.get("/", (req, res) => {
@@ -32,12 +32,26 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 const { Pool } = require("pg")
-
+ 
 const pool = new Pool({
   connectionString: "postgres://postgres:password@127.0.0.1:5432/adopt_a_pet"
 })
 
 // Express routes
+app.get("/api/v1/adoption_applications", (req, res) => {
+  pool
+    .query(
+      "SELECT adoption_applications.name AS person_name, adoption_applications.phone_number, adoption_applications.email, adoption_applications.home_status, adoption_applications.application_status, adoptable_pets.name AS pet_name, adoptable_pets.img_url, adoptable_pets.vaccination_status, adoptable_pets.adoption_story, adoptable_pets.adoption_status FROM adoption_applications JOIN adoptable_pets ON adoptable_pets.id = adoption_applications.pet_id"
+    )
+    .then(result => {
+      return res.json(result.rows)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+})
+// SELECT * FROM adoption_applications
+
 app.get("/api/v1/pet_type", (req, res) => {
   pool
     .query(
