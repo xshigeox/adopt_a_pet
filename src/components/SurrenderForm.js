@@ -95,7 +95,7 @@ const SurrenderForm = props => {
       <form
         autoComplete="off"
         id="surrenderForm"
-        className="callout"
+        className="callout form-format"
         onSubmit={addNewPet}
       >
         <h1 className="header-title">Surrender a Pet</h1>
