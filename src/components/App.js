@@ -19,6 +19,8 @@ const App = props => {
 import { Route, BrowserRouter, Link, Switch } from "react-router-dom"
 import SurrenderForm from "./SurrenderForm"
 import TypeOfPetsContainer from "./TypeOfPetsContainer"
+import ListPageContainer from "./ListPageContainer"
+import ShowPage from "./ShowPage"
 
 const App = props => {
   return (
@@ -54,9 +56,17 @@ const App = props => {
       <div className="bottom">
         <Switch>
           <Route exact path="/pets" component={TypeOfPetsContainer} />
-          <Route exact path="/guineapigs" />
-          <Route exact path="/reptiles" />
+          <Route exact path="/guineapigs" key={"gp"}>
+            <ListPageContainer
+              petType={"guinea pig"}
+              petTypeName={"Guinea Pigs"}
+            />
+          </Route>
+          <Route exact path="/reptiles" key={"lz"}>
+            <ListPageContainer petType={"reptile"} petTypeName={"Reptiles"} />
+          </Route>
           <Route exact path="/adoptions/new" component={SurrenderForm} />
+          <Route exact path="/pets/:id" component={ShowPage} />
         </Switch>
       </div>
     </BrowserRouter>

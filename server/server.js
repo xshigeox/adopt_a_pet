@@ -53,24 +53,10 @@ app.get("/api/v1/pet_type", (req, res) => {
 
 app.get("/api/v1/:pet_type", (req, res) => {
   let petType = req.params.pet_type
-<<<<<<< HEAD
-  if (petType == "pigguinea" || petType == "guineapig") {
-    petType = "guinea"
-  }
   pool
     .query(
-      "SELECT pet_types.type FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id WHERE pet_types.type LIKE $1",
-      [`%${petType}%`]
-=======
-  pool
-    .query(
-<<<<<<< HEAD
-      "SELECT pet_types.type FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id WHERE pet_types.type LIKE $1",
+      "SELECT adoptable_pets.* FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id WHERE pet_types.type LIKE $1",
       [petType]
->>>>>>> 8d84d945a344be71f3713ee96eb91afd257d4866
-=======
-      "SELECT adoptable_pets.* FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id WHERE pet_types.type LIKE $1", [petType]
->>>>>>> d6da04787cdab7758319dff9c67b6c5ab0dede5e
     )
     .then(result => {
       return res.json(result.rows)
@@ -92,8 +78,30 @@ app.get("/api/v1/pets/:id", (req, res) => {
     })
 })
 
-<<<<<<< HEAD
-=======
+app.post("/api/v1/adoptionApplication", (req, res) => {
+  console.log(req.body)
+  const {
+    name,
+    phoneNumber,
+    email,
+    homeStatus,
+    applicationStatus,
+    petId
+  } = req.body
+  pool
+    .query(
+      "INSERT INTO adoption_applications(name, phone_number, email, home_status, application_status, pet_id) VALUES($1, $2, $3, $4, $5, $6)",
+      [name, phoneNumber, email, homeStatus, applicationStatus, petId]
+    )
+    .then(result => {
+      return res.json(result.rows)
+    })
+    .catch(err => {
+      console.log(err)
+      res.sendStatus(500)
+    })
+})
+
 app.post("/api/v1/newPet", (req, res) => {
   const {
     name,
@@ -130,7 +138,6 @@ app.post("/api/v1/newPet", (req, res) => {
     })
 })
 
->>>>>>> 8d84d945a344be71f3713ee96eb91afd257d4866
 app.get("*", (req, res) => {
   res.render("home")
 })
