@@ -174,7 +174,7 @@
 #hero-section-text {
   color: #ea526f;
   text-shadow: 1px 1px 2px #c6d1d8;
-  text-align: left;
+  text-align: center;
 }
 
 .featured-image-block-grid-header {
@@ -370,4 +370,46 @@
 .pets-you-might-know .view-more-pets .view-more-text .view-more-link:hover,
 .pets-you-might-know .view-more-pets .view-more-text .view-more-link:focus {
   text-decoration: underline;
+}
+
+.bg-hide {
+  display: none;
+}
+
+.bg-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  width: 30rem;
+  height: 25rem;
+  background-color: white;
+  opacity: 1;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.image-resized {
+  width: 100px;
+  height: 90px;
+  border-radius: 10px;
+}
+
+.admin-button {
+  background-color: #ea526f;
+  padding: 5px;
+  border: white solid 1px;
+  border-radius: 10px;
+}
+.alert-box {
+  background-color: #ea526f;
+  color: #fefefe;
+  border-radius: 10px;
 }
