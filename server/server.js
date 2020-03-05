@@ -55,7 +55,8 @@ app.get("/api/v1/:pet_type", (req, res) => {
   let petType = req.params.pet_type
   pool
     .query(
-      "SELECT adoptable_pets.* FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id WHERE pet_types.type LIKE $1", [petType]
+      "SELECT adoptable_pets.* FROM pet_types JOIN adoptable_pets ON adoptable_pets.pet_type_id = pet_types.id WHERE pet_types.type LIKE $1",
+      [petType]
     )
     .then(result => {
       return res.json(result.rows)
@@ -86,6 +87,28 @@ app.post("/api/v1/login", (req, res) => {
     })
     .catch(error => {
       console.log(error)
+
+app.post("/api/v1/adoptionApplication", (req, res) => {
+  console.log(req.body)
+  const {
+    name,
+    phoneNumber,
+    email,
+    homeStatus,
+    applicationStatus,
+    petId
+  } = req.body
+  pool
+    .query(
+      "INSERT INTO adoption_applications(name, phone_number, email, home_status, application_status, pet_id) VALUES($1, $2, $3, $4, $5, $6)",
+      [name, phoneNumber, email, homeStatus, applicationStatus, petId]
+    )
+    .then(result => {
+      return res.json(result.rows)
+    })
+    .catch(err => {
+      console.log(err)
+      res.sendStatus(500)
     })
 })
 
