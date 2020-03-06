@@ -60,7 +60,6 @@ const SurrenderForm = props => {
         headers: { "Content-Type": "application/json" }
       })
         .then(response => {
-          console.log(response)
           if (response.ok) {
             setSubmitted(true)
           } else {

@@ -1,7 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 
 const PendingAppList = props => {
-  console.log(props.data)
   const {
     pet_name,
     img_url,
@@ -12,7 +11,8 @@ const PendingAppList = props => {
     phone_number,
     email,
     home_status,
-    application_status
+    application_status,
+    id
   } = props.data
 
   let status
@@ -20,6 +20,30 @@ const PendingAppList = props => {
     status = "Up to Date"
   } else {
     status = "Not Up to Date"
+  }
+
+  const updateStatus = event => {
+    event.preventDefault()
+    const approvalStatus = {
+      status: event.currentTarget.value,
+      id: event.currentTarget.id
+    }
+    debugger
+    fetch("/api/v1/approvalStatus", {
+      method: "POST",
+      body: JSON.stringify(approvalStatus),
+      headers: { "Content-Type": "application/json" }
+    })
+      .then(response => {
+        if (response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.statues} (${response.statusText})`,
+            error = new Error(errorMessage)
+          throw error
+        }
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
   return (
@@ -51,11 +75,21 @@ const PendingAppList = props => {
 
       <div className="small-12 medium-6 columns add-friend">
         <div className="add-friend-action">
-          <button className="button primary small">
+          <button
+            className="button primary small"
+            value="Approved"
+            id={id}
+            onClick={updateStatus}
+          >
             <i className="fa fa-user-plus" aria-hidden="true"></i>
             Approve
           </button>
-          <button className="button secondary small">
+          <button
+            className="button secondary small"
+            value="Denied"
+            id={id}
+            onClick={updateStatus}
+          >
             <i className="fa fa-user-times" aria-hidden="true"></i>
             Deny
           </button>
