@@ -47,7 +47,8 @@ const PendingSurrenderList = props => {
       vaccination_status: vaccination_status,
       adoption_story: story.story,
       adoption_status: "Pending",
-      pet_type_id: pet_type_id
+      pet_type_id: pet_type_id,
+      application_status: "Approved"
     }
 
     fetch("/api/v1/surrenderStatus", {
@@ -65,6 +66,8 @@ const PendingSurrenderList = props => {
         }
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
+    alert("Form " + event.currentTarget.value)
+    window.location.href = "http://localhost:3000/pets"
   }
 
   return (

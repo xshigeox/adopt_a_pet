@@ -8,7 +8,7 @@ const AdoptMeForm = props => {
     phoneNumber: "",
     email: "",
     homeStatus: "",
-    applicationStatus: "pending",
+    applicationStatus: "Pending",
     petId: `${props.petId}`
   }
 
@@ -138,7 +138,7 @@ const AdoptMeForm = props => {
             type="hidden"
             name="applicationStatus"
             id="applicationStatus"
-            value="pending"
+            value="Pending"
           />
 
           <input type="hidden" name="petId" id="petId" value={props.petId} />
