@@ -61,6 +61,17 @@ app.get("/api/v1/adoptionApplications", (req, res) => {
     })
 })
 
+app.get("/api/v1/surrenderApplications", (req, res) => {
+  pool
+    .query("SELECT * FROM pet_surrender_applications")
+    .then(result => {
+      return res.json(result.rows)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+})
+
 app.get("/api/v1/:pet_type", (req, res) => {
   let petType = req.params.pet_type
   pool
@@ -126,15 +137,45 @@ app.post("/api/v1/adoptionApplication", (req, res) => {
 })
 
 app.post("/api/v1/approvalStatus", (req, res) => {
-  debugger
   const { status, id } = req.body
-  console.log(status)
-  console.log(id)
+
   pool
     .query("UPDATE adoptable_pets SET adoption_status = $1 WHERE id = $2", [
       status,
       id
     ])
+    .then(result => {
+      return res.json(result.rows)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+})
+
+app.post("/api/v1/surrenderStatus", (req, res) => {
+  const {
+    name,
+    img_url,
+    age,
+    vaccination_status,
+    adoption_story,
+    adoption_status,
+    pet_type_id
+  } = req.body
+
+  pool
+    .query(
+      "INSERT INTO adoptable_pets(name, img_url, age, vaccination_status, adoption_story, adoption_status, pet_type_id) VALUES($1, $2, $3, $4, $5, $6, $7)",
+      [
+        name,
+        img_url,
+        age,
+        vaccination_status,
+        adoption_story,
+        adoption_status,
+        pet_type_id
+      ]
+    )
     .then(result => {
       return res.json(result.rows)
     })

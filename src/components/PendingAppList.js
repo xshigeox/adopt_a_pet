@@ -36,7 +36,6 @@ const PendingAppList = props => {
     })
       .then(response => {
         if (response.ok) {
-          debugger
           return response
         } else {
           let errorMessage = `${response.statues} (${response.statusText})`,
@@ -82,10 +81,22 @@ const PendingAppList = props => {
         </div>
         <div className="small-6 columns add-friend div-pending-button">
           <div className="add-friend-action">
-            <button className="button primary small" value="Approved" id={id} onClick={updateStatus}>
-              <i className="far fa-smile" aria-hidden="true"></i> Approve</button>
-            <button className="button secondary small" value="Denied" id={id} onClick={updateStatus}>
-              <i className="far fa-frown" aria-hidden="true"></i> Deny</button>
+            <button
+              className="button primary small"
+              value="Approved"
+              id={id}
+              onClick={updateStatus}
+            >
+              <i className="far fa-smile" aria-hidden="true"></i> Approve
+            </button>
+            <button
+              className="button secondary small"
+              value="Denied"
+              id={id}
+              onClick={updateStatus}
+            >
+              <i className="far fa-frown" aria-hidden="true"></i> Deny
+            </button>
           </div>
         </div>
       </div>

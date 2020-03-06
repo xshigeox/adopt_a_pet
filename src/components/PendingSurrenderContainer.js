@@ -41,7 +41,6 @@ const PendingSurrenderContainer = props => {
   } else {
     return ""
   }
-  }
 }
 
 export default PendingSurrenderContainer
