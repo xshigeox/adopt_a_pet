@@ -20,36 +20,30 @@ const AnimalInfo = props => {
 		petId = props.pet[0].id
 	}
 
-<<<<<<< HEAD
-	if (vaccinationStatus === true) {
-		vStatus = "Up to Date"
-	}
-=======
-  vStatus = vaccinationStatus === true ? "Up to Date" : "Out of Date"
->>>>>>> 23d1254bc8002703045ef10b7b1f2e31baa03034
+	vStatus = vaccinationStatus === true ? "Up to Date" : "Out of Date"
 
 	const onClickHandler = event => {
 		setFormReveal(true)
 	}
 
-  if (props.pet[0]) {
-    console.log(img_url)
-    return (
-      <div>
-        <div className="portfolio-resume-scrolling-container row">
-          <div
-            className="columns small-12 medium-5 portfolio-resume-overview"
-            style={{
-              backgroundSize: "cover",
-              zIndex: 0,
-              backgroundImage: `url(${img_url})`
-            }}
-          >
-            <div className="portfolio-resume-overview-content"></div>
-          </div>
-          <div className="columns small-12 medium-7 portfolio-resume-scrolling">
-            <h3>{name}</h3>
-            <h5>Age: {age}</h5>
+	if (props.pet[0]) {
+		console.log(img_url)
+		return (
+			<div>
+				<div className="portfolio-resume-scrolling-container row">
+					<div
+						className="columns small-12 medium-5 portfolio-resume-overview"
+						style={{
+							backgroundSize: "cover",
+							zIndex: 0,
+							backgroundImage: `url(${img_url})`
+						}}
+					>
+						<div className="portfolio-resume-overview-content"></div>
+					</div>
+					<div className="columns small-12 medium-7 portfolio-resume-scrolling">
+						<h3>{name}</h3>
+						<h5>Age: {age}</h5>
 
 						<h5>Vaccination Status:</h5>
 						<p>{vStatus}</p>
