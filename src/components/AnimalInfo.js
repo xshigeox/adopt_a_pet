@@ -20,9 +20,7 @@ const AnimalInfo = props => {
     petId = props.pet[0].id
   }
 
-  if (vaccinationStatus === true) {
-    vStatus = "Up to Date"
-  }
+  vStatus = vaccinationStatus === true ? "Up to Date" : "Out of Date"
 
   const onClickHandler = event => {
     setFormReveal(true)
