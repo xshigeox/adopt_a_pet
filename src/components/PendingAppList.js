@@ -28,7 +28,7 @@ const PendingAppList = props => {
       status: event.currentTarget.value,
       id: event.currentTarget.id
     }
-    debugger
+
     fetch("/api/v1/approvalStatus", {
       method: "POST",
       body: JSON.stringify(approvalStatus),
@@ -36,6 +36,7 @@ const PendingAppList = props => {
     })
       .then(response => {
         if (response.ok) {
+          debugger
           return response
         } else {
           let errorMessage = `${response.statues} (${response.statusText})`,
@@ -81,24 +82,22 @@ const PendingAppList = props => {
         </div>
         <div className="small-6 columns add-friend div-pending-button">
           <div className="add-friend-action">
-            <button className="button primary small">
-              <i
-                className="fa fa-heart"
-                aria-hidden="true"
-                value="Approved"
-                id={id}
-                onClick={updateStatus}
-              ></i>
+            <button
+              className="button primary small"
+              value="Approved"
+              id={id}
+              onClick={updateStatus}
+            >
+              <i className="fa fa-heart" aria-hidden="true"></i>
               Approve
             </button>
-            <button className="button secondary small">
-              <i
-                className="fa fa-star"
-                aria-hidden="true"
-                value="Denied"
-                id={id}
-                onClick={updateStatus}
-              ></i>
+            <button
+              className="button secondary small"
+              value="Denied"
+              id={id}
+              onClick={updateStatus}
+            >
+              <i className="fa fa-star" aria-hidden="true"></i>
               Deny
             </button>
           </div>

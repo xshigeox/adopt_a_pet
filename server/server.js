@@ -126,6 +126,7 @@ app.post("/api/v1/adoptionApplication", (req, res) => {
 })
 
 app.post("/api/v1/approvalStatus", (req, res) => {
+  debugger
   const { status, id } = req.body
   console.log(status)
   console.log(id)
