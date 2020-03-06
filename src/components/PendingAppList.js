@@ -1,7 +1,6 @@
 import React from "react"
 
 const PendingAppList = props => {
-  console.log(props.data)
   const {
     pet_name,
     img_url,
@@ -12,7 +11,8 @@ const PendingAppList = props => {
     phone_number,
     email,
     home_status,
-    application_status
+    application_status,
+    id
   } = props.data
 
   let status
@@ -22,45 +22,86 @@ const PendingAppList = props => {
     status = "Not Up to Date"
   }
 
+  const updateStatus = event => {
+    event.preventDefault()
+    const approvalStatus = {
+      status: event.currentTarget.value,
+      id: event.currentTarget.id
+    }
+
+    fetch("/api/v1/approvalStatus", {
+      method: "POST",
+      body: JSON.stringify(approvalStatus),
+      headers: { "Content-Type": "application/json" }
+    })
+      .then(response => {
+        if (response.ok) {
+          debugger
+          return response
+        } else {
+          let errorMessage = `${response.statues} (${response.statusText})`,
+            error = new Error(errorMessage)
+          throw error
+        }
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+
   return (
     <div className="add-pets-section">
       <div className="row ">
-      <div className="small-6 columns about-pets-avatar">
-        <img className="avatar-image pending-form-img" src={img_url} alt={pet_name} />
-      </div>
+        <div className="small-6 columns about-pets-avatar">
+          <img
+            className="avatar-image pending-form-img"
+            src={img_url}
+            alt={pet_name}
+          />
+        </div>
 
-      <div className="small-6 columns about-pets div-pending-pet-applicant">
-        <div className="about-pets-author">
-          <p className="author-name">{pet_name}</p>
-          <p className="author-location">Vaccination Status: {status}</p>
-          <p className="author-location">Adoption Story: {adoption_story}</p>
-          <p className="author-location">Adoption Status: {adoption_status}</p>
+        <div className="small-6 columns about-pets div-pending-pet-applicant">
+          <div className="about-pets-author">
+            <p className="author-name">{pet_name}</p>
+            <p className="author-location">Vaccination Status: {status}</p>
+            <p className="author-location">Adoption Story: {adoption_story}</p>
+            <p className="author-location">
+              Adoption Status: {adoption_status}
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className="small-6 columns about-pets div-pending-pet-applicant">
-        <div className="about-pets-author">
-          <p className="author-name">Applicant: {person_name}</p>
-          <p className="author-location">Phone Number: {phone_number}</p>
-          <p className="author-location">Email: {email}</p>
-          <p className="author-location">Home Status: {home_status}</p>
-          <p className="author-location">
-            Application Status: {application_status}
-          </p>
+        <div className="small-6 columns about-pets div-pending-pet-applicant">
+          <div className="about-pets-author">
+            <p className="author-name">Applicant: {person_name}</p>
+            <p className="author-location">Phone Number: {phone_number}</p>
+            <p className="author-location">Email: {email}</p>
+            <p className="author-location">Home Status: {home_status}</p>
+            <p className="author-location">
+              Application Status: {application_status}
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="small-6 columns add-friend div-pending-button">
-        <div className="add-friend-action">
-          <button className="button primary small">
-            <i className="fa fa-heart" aria-hidden="true"></i>
-            Approve
-          </button>
-          <button className="button secondary small">
-            <i className="fa fa-star" aria-hidden="true"></i>
-            Deny
-          </button>
+        <div className="small-6 columns add-friend div-pending-button">
+          <div className="add-friend-action">
+            <button
+              className="button primary small"
+              value="Approved"
+              id={id}
+              onClick={updateStatus}
+            >
+              <i className="fa fa-heart" aria-hidden="true"></i>
+              Approve
+            </button>
+            <button
+              className="button secondary small"
+              value="Denied"
+              id={id}
+              onClick={updateStatus}
+            >
+              <i className="fa fa-star" aria-hidden="true"></i>
+              Deny
+            </button>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   )
