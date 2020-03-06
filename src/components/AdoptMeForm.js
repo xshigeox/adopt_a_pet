@@ -85,10 +85,10 @@ const AdoptMeForm = props => {
         <form
           autoComplete="off"
           id="adoptMeForm"
-          className="callout"
+          className="callout form-format"
           onSubmit={submitForm}
         >
-          <h1>Adopt Me!</h1>
+          <h1 className="header-title">Adopt Me!</h1>
           <ErrorList errors={errors} />
           <div>
             <label htmlFor="name">Name:</label>

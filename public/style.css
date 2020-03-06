@@ -157,8 +157,8 @@
 
 .hero-section {
   background: url("images/gpsturts.jpg") 50% no-repeat;
-  background-size: 76%;
-  height: 60vh;
+  background-size: 60%;
+  height: 35vh;
   text-align: center;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -267,8 +267,17 @@
   border-bottom: 0.0625rem solid #cacaca;
 }
 
-.pets-you-might-know .add-pets-header .header-title {
+.pets-you-might-know .add-pets-header {
   font-weight: bold;
+  color: #ea526f;
+  text-shadow: 1px 1px 2px #c6d1d8;
+}
+
+.header-title {
+  font-weight: bolder;
+  font-size: 2rem;
+  color: #ea526f;
+  text-shadow: 5px 5px 5px #c6d1d8;
 }
 
 .pets-you-might-know .add-pets-section {
@@ -313,7 +322,8 @@
   .about-pets
   .about-pets-author
   .author-name {
-  color: #0a0a0a;
+  color: #ea526f;
+  font-weight: bold;
   margin: 0.375rem 0 0;
 }
 
@@ -329,7 +339,7 @@
   .author-mutual {
   color: #8a8a8a;
   margin-bottom: 0;
-  font-size: 0.85em;
+  font-size: 1.5;
 }
 
 .pets-you-might-know .add-pets-section .add-friend {
@@ -414,4 +424,24 @@
   background-color: #ea526f;
   color: #fefefe;
   border-radius: 10px;
+}
+
+.form-format {
+  padding: 3rem;
+}
+
+.pending-form-img {
+  border: 2px solid #ea526f;
+  border-radius: 20px;
+  width: 30em;
+  height: 30em;
+  background-color: cadetblue;
+}
+
+.div-pending-pet-applicant {
+  height: 13.5em;
+}
+
+.div-pending-button {
+  height: 3em;
 }

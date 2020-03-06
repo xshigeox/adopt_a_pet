@@ -36,7 +36,7 @@ const TypeOfPetsContainer = props => {
 			<Orbit />
 			<div className="featured-image-block-grid">
 				<div className="featured-image-block-grid-header columns text-center">
-					<h2>Pet Types</h2>
+					<h2 id="hero-section-text">Pet Types</h2>
 					<p>Select your future best friend.</p>
 				</div>
 				<div className="row">{listOfPets}</div>

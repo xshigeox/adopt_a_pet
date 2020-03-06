@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from "react"
+import PendingAppContainer from "./PendingAppContainer"
 
 const LoginPage = props => {
   const initiError = {
@@ -77,6 +78,15 @@ const LoginPage = props => {
     event.preventDefault()
     setPassword(event.target.value)
   }
+
+  let adminPage
+  if (display === "bg-hide") {
+    adminPage = (
+      <div>
+        <PendingAppContainer />
+      </div>
+    )
+  }
   return (
     <Fragment>
       <div className={display}>
@@ -110,9 +120,8 @@ const LoginPage = props => {
           </form>
         </div>
       </div>
-      <div>
-        <h1>ADMIN PAGE</h1>
-      </div>
+
+      <div>{adminPage}</div>
     </Fragment>
   )
 }
