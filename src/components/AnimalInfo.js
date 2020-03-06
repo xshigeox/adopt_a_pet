@@ -29,6 +29,7 @@ const AnimalInfo = props => {
   }
 
   if (props.pet[0]) {
+    console.log(img_url)
     return (
       <div>
         <div className="portfolio-resume-scrolling-container row">
