@@ -320,7 +320,8 @@
   .about-pets
   .about-pets-author
   .author-name {
-  color: #0a0a0a;
+  color: #ea526f;
+  font-weight: bold;
   margin: 0.375rem 0 0;
 }
 
@@ -336,7 +337,7 @@
   .author-mutual {
   color: #8a8a8a;
   margin-bottom: 0;
-  font-size: 0.85em;
+  font-size: 1.5;
 }
 
 .pets-you-might-know .add-pets-section .add-friend {
@@ -425,4 +426,20 @@
 
 .form-format {
   padding: 3rem;
+}
+
+.pending-form-img {
+  border: 2px solid #ea526f;
+  border-radius: 20px;
+  width: 30em;
+  height: 30em;
+  background-color: cadetblue;
+}
+
+.div-pending-pet-applicant {
+  height: 13.5em;
+}
+
+.div-pending-button {
+  height: 3em;
 }
