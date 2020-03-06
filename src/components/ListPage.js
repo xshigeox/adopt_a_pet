@@ -9,7 +9,7 @@ const ListPage = props => {
 			<div className="small-12 medium-6 columns about-pets">
 				<div className="about-pets-avatar">
 					<Link to={`/pets/${id}`}>
-						<img className="avatar-image" src={img_url} alt={name} />
+						<img className="avatar-image test" src={img_url} alt={name} />
 					</Link>
 				</div>
 				<div className="about-pets-author">
