@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from "react"
 import PendingAppContainer from "./PendingAppContainer"
+import PendingSurrenderContainer from "./PendingSurrenderContainer"
 
 const LoginPage = props => {
   const initiError = {
@@ -83,7 +84,17 @@ const LoginPage = props => {
   if (display === "bg-hide") {
     adminPage = (
       <div>
-        <PendingAppContainer />
+        <div>
+          <h6 className="header-title">Pending Adoption Applications</h6>
+          <PendingAppContainer />
+        </div>
+
+        <div>
+          <h6 className="header-title">
+            Pending Animal Surrender Applications
+          </h6>
+          <PendingSurrenderContainer />
+        </div>
       </div>
     )
   }

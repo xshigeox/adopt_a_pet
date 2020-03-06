@@ -1,18 +1,20 @@
-import React from "react"
+import React, { useState } from "react"
 
-const PendingAppList = props => {
+const PendingSurrenderList = props => {
+  const [story, setStory] = useState({
+    story: ""
+  })
   const {
-    pet_name,
-    img_url,
-    vaccination_status,
-    adoption_story,
-    adoption_status,
-    person_name,
+    id,
+    name,
     phone_number,
     email,
-    home_status,
-    application_status,
-    id
+    pet_name,
+    pet_age,
+    pet_type_id,
+    pet_img_url,
+    vaccination_status,
+    application_status
   } = props.data
 
   let status
@@ -22,14 +24,33 @@ const PendingAppList = props => {
     status = "Not Up to Date"
   }
 
+  let animalType
+  if (pet_type_id === 1) {
+    animalType = "Guinea Pig"
+  } else if (pet_type_id === 2) {
+    animalType = "Reptile"
+  }
+
+  const handleInputChange = event => {
+    setStory({
+      ...story,
+      [event.currentTarget.id]: event.currentTarget.value
+    })
+  }
+
   const updateStatus = event => {
     event.preventDefault()
     const approvalStatus = {
-      status: event.currentTarget.value,
-      id: event.currentTarget.id
+      name: pet_name,
+      img_url: pet_img_url,
+      age: pet_age,
+      vaccination_status: vaccination_status,
+      adoption_story: story.story,
+      adoption_status: "Pending",
+      pet_type_id: pet_type_id
     }
 
-    fetch("/api/v1/approvalStatus", {
+    fetch("/api/v1/surrenderStatus", {
       method: "POST",
       body: JSON.stringify(approvalStatus),
       headers: { "Content-Type": "application/json" }
@@ -44,7 +65,6 @@ const PendingAppList = props => {
         }
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
-
   }
 
   return (
@@ -53,7 +73,7 @@ const PendingAppList = props => {
         <div className="small-6 columns about-pets-avatar">
           <img
             className="avatar-image pending-form-img"
-            src={img_url}
+            src={pet_img_url}
             alt={pet_name}
           />
         </div>
@@ -61,23 +81,30 @@ const PendingAppList = props => {
         <div className="small-6 columns about-pets div-pending-pet-applicant">
           <div className="about-pets-author">
             <p className="author-name">{pet_name}</p>
+            <p className="author-location">Type of Animal: {animalType}</p>
             <p className="author-location">Vaccination Status: {status}</p>
-            <p className="author-location">Adoption Story: {adoption_story}</p>
+            <p className="author-location">Pet Age: {pet_age}</p>
             <p className="author-location">
-              Adoption Status: {adoption_status}
+              Application Status: {application_status}
             </p>
           </div>
         </div>
 
         <div className="small-6 columns about-pets div-pending-pet-applicant">
           <div className="about-pets-author">
-            <p className="author-name">Applicant: {person_name}</p>
+            <p className="author-name">Applicant: {name}</p>
             <p className="author-location">Phone Number: {phone_number}</p>
             <p className="author-location">Email: {email}</p>
-            <p className="author-location">Home Status: {home_status}</p>
-            <p className="author-location">
-              Application Status: {application_status}
-            </p>
+            <label htmlFor="adoptionStory">
+              <p className="author-location">Adoption Story:</p>
+              <input
+                type="text"
+                name="story"
+                id="story"
+                value={story.story}
+                onChange={handleInputChange}
+              />
+            </label>
           </div>
         </div>
         <div className="small-6 columns add-friend div-pending-button">
@@ -104,4 +131,5 @@ const PendingAppList = props => {
     </div>
   )
 }
-export default PendingAppList
+
+export default PendingSurrenderList
