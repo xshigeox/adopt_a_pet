@@ -63,7 +63,9 @@ app.get("/api/v1/adoptionApplications", (req, res) => {
 
 app.get("/api/v1/surrenderApplications", (req, res) => {
   pool
-    .query("SELECT * FROM pet_surrender_applications")
+    .query(
+      "SELECT * FROM pet_surrender_applications WHERE application_status = 'Pending'"
+    )
     .then(result => {
       return res.json(result.rows)
     })
