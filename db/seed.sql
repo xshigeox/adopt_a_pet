@@ -21,14 +21,14 @@ INSERT INTO adoptable_pets (name, img_url, age, vaccination_status, adoption_sto
 ('Boxy Brown', 'https://farm2.staticflickr.com/1889/43040326120_715b221842_b.jpg', 10, FALSE, 'Love lettuce, walking, and beating up the man you jive turkey', 'Pending', 2);
 
 INSERT INTO pet_surrender_applications (name, phone_number, email, pet_name, pet_age, pet_type_id, pet_img_url, vaccination_status, application_status) VALUES
-('John', 6178825647, 'JohnM@gmail.com', 'Bob', 2, 2, 'snakeimg.com', FALSE , 'pending'),
-('Jessica', 6177843921, 'JMatos@gmail.com', 'Tom', 8, 1, 'guineapig2img.com', TRUE, 'pending');
+('John', 6178825647, 'JohnM@gmail.com', 'Bob', 2, 2, 'https://1.bp.blogspot.com/-8kABMMyDw_E/UCeYS-CqiRI/AAAAAAAAEmI/09PDWJEOToM/s1600/hd-snake-wallpaper-with-a-attacking-green-snake-wallpapers-backgrounds.jpg', FALSE , 'Pending'),
+('Jessica', 6177843921, 'JMatos@gmail.com', 'Tom', 8, 1, 'https://animals.sandiegozoo.org/sites/default/files/2019-04/animals_guineapigs.jpg', TRUE, 'Pending');
 
 INSERT INTO adoption_applications (name, phone_number, email, home_status, application_status, pet_id) VALUES
-('Robert', 6178964573, 'RobertM@gmail.com', 'Rent', 'pending', 1),
-('Erica', 6173902820, 'ESmith@gmail.com', 'Own', 'pending',3),
-('Franklin', 6178930298, 'FranklinJ@gmail.com', 'Rent', 'pending', 2),
-('Nancy', 6172097654, 'NLee@gmail.com', 'Rent', 'pending',4);
+('Robert', 6178964573, 'RobertM@gmail.com', 'Rent', 'Pending', 1),
+('Erica', 6173902820, 'ESmith@gmail.com', 'Own', 'Pending',3),
+('Franklin', 6178930298, 'FranklinJ@gmail.com', 'Rent', 'Pending', 2),
+('Nancy', 6172097654, 'NLee@gmail.com', 'Rent', 'Pending',4);
 
 INSERT INTO admin_table (name, username, password) VALUES ('Lucas Green', 'root', 'root');
 

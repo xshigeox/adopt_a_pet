@@ -162,7 +162,8 @@ app.post("/api/v1/surrenderStatus", (req, res) => {
     vaccination_status,
     adoption_story,
     adoption_status,
-    pet_type_id
+    pet_type_id,
+    application_status
   } = req.body
 
   pool
@@ -209,7 +210,7 @@ app.post("/api/v1/newPet", (req, res) => {
         petType,
         petImageUrl,
         vaccinationStatus,
-        "pending"
+        "Pending"
       ]
     )
     .then(result => {
