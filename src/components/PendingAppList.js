@@ -44,7 +44,8 @@ const PendingAppList = props => {
         }
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
-
+      alert("Form " + event.currentTarget.value)
+      window.location.href = "http://localhost:3000/pets";
   }
 
   return (
