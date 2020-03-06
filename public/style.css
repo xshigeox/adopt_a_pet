@@ -219,6 +219,8 @@
 .portfolio-resume-overview {
   height: 400px;
   display: -webkit-flex;
+  background-position: 100% 0;
+  background-size:40%;
   display: -ms-flexbox;
   display: flex;
   -webkit-align-items: center;
